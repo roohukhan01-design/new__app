@@ -102,7 +102,9 @@ jobs:
             echo "::error::Android SDK manager was not found in $ANDROID_HOME"
             exit 1
           fi
-          yes | "$SDKMANAGER" --licenses >/dev/null
+          # sdkmanager may close stdin after all licenses are accepted; avoid
+          # failing the job on yes(1)'s expected SIGPIPE / broken-pipe exit.
+          yes | "$SDKMANAGER" --licenses >/dev/null || true
           "$SDKMANAGER" --install "platforms;android-34" "build-tools;34.0.0" "platform-tools"
 
       - name: Set up Gradle 8.7
