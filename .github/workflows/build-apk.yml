@@ -29,7 +29,7 @@ jobs:
             cp build-1.gradle app/build.gradle
             cp AndroidManifest.xml app/src/main/AndroidManifest.xml
             cp MainActivity.java app/src/main/java/com/roohu/clipforge/
-            for f in YouTubeClient.java Transcriber.java SecureStore.java Pcm16k.java Painter.java Net.java MusicSynth.java MusicSearch.java GeminiClient.java FxEffect.java Energy.java CloudAsr.java ClipExporter.java; do
+            for f in YouTubeClient.java Transcriber.java SecureStore.java Pcm16k.java Fonts.java Painter.java Net.java MusicSynth.java MusicSearch.java GeminiClient.java FxEffect.java Energy.java CloudAsr.java ClipExporter.java; do
               [ ! -f "$f" ] || cp "$f" app/src/main/java/com/roohu/clipforge/
             done
             cp Roohu-ClipForge.html app/src/main/assets/
